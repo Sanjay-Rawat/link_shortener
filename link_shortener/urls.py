@@ -22,6 +22,6 @@ from aboutus import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    url('default/', include('dashboard.urls')),
     url('about/', views.about),
+    url('', include('dashboard.urls')),
 ]

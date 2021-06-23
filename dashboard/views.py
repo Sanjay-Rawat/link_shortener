@@ -11,5 +11,5 @@ class HomePageView(TemplateView):
 
 
 def dashboard(request):
-    template = loader.get_template("dashboard.html")
+    template = loader.get_template("about.html")
     return HttpResponse(template.render())
