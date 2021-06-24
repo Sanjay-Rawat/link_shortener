@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block mainBody %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" >
+    <form action="">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter you name">
+          </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="+91 000000000">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+
+          <button class="btn btn-primary">Submit Query</button>
+    </form>
+    </div>
+    <div class="col-md-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27812.66680599538!2d79.43776107966062!3d29.382486451492117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a0a1bc28fd9d61%3A0x7cae7ba916987db3!2sNainital%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1624501192845!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+{% endblock mainBody %}

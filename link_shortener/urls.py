@@ -18,10 +18,12 @@ from django.conf.urls import include , url
 from django.contrib import admin
 from django.urls import path
 
-from aboutus import views
+from aboutus import views as a
+from dashboard import views as b
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    url('about/', views.about),
-    url('', include('dashboard.urls')),
+    path('admin/', admin.site.urls),
+    path('about/', a.about),
+    path('contact/',b.xyz),
+    path('', include('dashboard.urls')),
 ]

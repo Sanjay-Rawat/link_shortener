@@ -13,3 +13,7 @@ class HomePageView(TemplateView):
 def dashboard(request):
     template = loader.get_template("about.html")
     return HttpResponse(template.render())
+
+def xyz(request):
+    template = loader.get_template("contact.html")
+    return HttpResponse(template.render())
