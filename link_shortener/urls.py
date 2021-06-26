@@ -15,15 +15,11 @@ Including another URLconf
 """
 
 from django.conf.urls import include , url
-from django.contrib import admin
 from django.urls import path
-
-from aboutus import views as a
-from dashboard import views as b
+from link_shortener.view import invalidPath,redirectToHome
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('about/', a.about),
-    path('contact/',b.xyz),
-    path('', include('dashboard.urls')),
+    path('',redirectToHome),
+    path('home/',include('home.urls')),
+    url(r'^.*/$', invalidPath),
 ]

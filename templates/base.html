@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include 'head.html' %}
-<body>
+<body onload="hideLoader()">
+{% include 'loading.html' %}
 {% include 'navbar.html' with url=currentPage %}
 {% block mainBody %}{% endblock mainBody %}
 {% include 'footer.html' %}
