@@ -1,0 +1,51 @@
+<button onclick="createToast()">click me</button>
+
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+  <div id="t-container" class="toast-container position-absolute top-0 end-0 p-3">
+
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById('t-container');
+
+  function createToast(title, description, delay = 5000, type = 'success') {
+    const element = document.createElement('div')
+    element.className = 'toast';
+    // element.id = Date.now(); 
+    let className = 'text-success'
+    if (type == 'error') {
+      className = 'text-danger'
+      title = title ? title : 'Error'
+    } else if (type == 'info') {
+      className = 'text-info'
+      title = title ? title : 'Info'
+    } else {
+      title = title ? title : 'Success'
+    }
+    element.innerHTML = `
+<div class="toast-header">
+    <i class="fa fa-check ${className}" style="font-size:24px"></i>
+          <strong class="me-auto  ${className}">&nbsp;${title || 'Success'}</strong>
+          <small class="text-muted">${new Date().toLocaleTimeString()}</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          ${description ? description : 'There is no description'}
+        </div>
+`
+    container.appendChild(element)
+    var myToast = new bootstrap.Toast(element, { delay })
+    myToast.show()
+  }
+
+  function success(title, description, duration = 1000) {
+    this.createToast(title, description, duration, 'success')
+  }
+  function error(title, description, duration = 1000) {
+    this.createToast(title, description, duration, 'error')
+  }
+  function info(title, description, duration = 1000) {
+    this.createToast(title, description, duration, 'info')
+  }
+</script>

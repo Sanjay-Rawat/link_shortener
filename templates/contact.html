@@ -3,26 +3,27 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6" >
-    <form action="">
+    <form action="/home/contact/" method="POST" onsubmit="handler(event)">
+      {% csrf_token %}
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Full Name</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter you name">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter you name" name="name">
           </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
           </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="+91 000000000">
+            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="+91 000000000" name="contactNumber">
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
           </div>
 
 
-          <button class="btn btn-primary">Submit Query</button>
+          <button class="btn btn-primary" type="submit">Submit Query</button>
     </form>
     </div>
     <div class="col-md-6">
@@ -30,4 +31,11 @@
     </div>
   </div>
 </div>
+<script>
+  function handler(event){
+    // event.preventDefault()
+  }
+</script>
 {% endblock mainBody %}
+
+

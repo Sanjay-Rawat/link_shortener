@@ -4,6 +4,7 @@
 <body onload="hideLoader()">
 {% include 'loading.html' %}
 {% include 'navbar.html' with url=currentPage %}
+{% include 'toaster.html'%}
 {% block mainBody %}{% endblock mainBody %}
 {% include 'footer.html' %}
 </body>
