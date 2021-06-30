@@ -12,3 +12,8 @@ def about(request):
 
 def contact(request):
           return render(request,'contact.html',{'currentPage':'contact'})
+
+def saveContact(request):
+               name = request.POST.get('name')
+               print(name)
+               return HttpResponse("form is submitted")
