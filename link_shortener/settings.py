@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'link_shortener.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'link_shortner',
-        'USER': 'root',
+        'NAME': 'link_shortner', #db name
+        'USER': 'root', 
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',

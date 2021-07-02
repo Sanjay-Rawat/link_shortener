@@ -17,15 +17,15 @@ def contact(request):
           return render(request,'contact.html',{'currentPage':'contact'})
 
 def saveContact(request):
-               name = request.POST.get('name')
-               email = request.POST.get('email')
-               contactNumber = request.POST.get('contactNumber')
-               comment = request.POST.get('comment')
+               a = request.POST.get('name')
+               b = request.POST.get('email')
+               c = request.POST.get('contactNumber')
+               d = request.POST.get('comment')
                data = ContactModel(
-                    name=name ,
-                    email=email,
-                    contactNumber=contactNumber,
-                    comment=comment
+                    name=a ,
+                    email=b,
+                    contactNumber=c,
+                    comment=d
                     )
                data.save()
                return HttpResponse("form is submitted")
