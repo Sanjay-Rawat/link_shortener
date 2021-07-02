@@ -28,4 +28,4 @@ def saveContact(request):
                     comment=d
                     )
                data.save()
-               return HttpResponse("form is submitted")
+               return HttpResponse("form is submitted") #https://pypi.org/project/mysqlclient/
