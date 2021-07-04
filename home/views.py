@@ -14,7 +14,8 @@ def about(request):
 def contact(request):
           if(request.method=='POST'):
                return saveContact(request)
-          return render(request,'contact.html',{'currentPage':'contact'})
+          data= getContacts()
+          return render(request,'contact.html',{'currentPage':'contact',data:data})
 
 def saveContact(request):
                a = request.POST.get('name')
@@ -29,3 +30,8 @@ def saveContact(request):
                     )
                data.save()
                return HttpResponse("form is submitted") #https://pypi.org/project/mysqlclient/
+
+
+def getContacts():
+     # return ContactModel.objects.get(email='sanjay96rawat@gmail.com')
+     return ContactModel.objects.all()
