@@ -15,7 +15,7 @@ def contact(request):
           if(request.method=='POST'):
                return saveContact(request)
           data= getContacts()
-          return render(request,'contact.html',{'currentPage':'contact',data:data})
+          return render(request,'contact.html',{'currentPage':'contact','contacts':data})
 
 def saveContact(request):
                a = request.POST.get('name')
