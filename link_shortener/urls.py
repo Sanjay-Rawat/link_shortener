@@ -16,10 +16,11 @@ Including another URLconf
 
 from django.conf.urls import include , url
 from django.urls import path
-from link_shortener.view import invalidPath,redirectToHome
+from link_shortener.view import invalidPath,redirectToHome,getUrl
 
 urlpatterns = [
     path('',redirectToHome),
+    path('<str:uid>/',getUrl),
     path('home/',include('home.urls')),
     url(r'^.*/$', invalidPath),
 ]
