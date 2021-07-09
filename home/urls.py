@@ -10,5 +10,4 @@ urlpatterns = [
     path('signup/', signup),
     path('short/', shortUrl),
     path('abc/', saveContact),
-    # path('<str:url>/', getUrl),
 ]

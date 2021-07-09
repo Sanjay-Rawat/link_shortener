@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6" >
-    <form action="/home/abc/" method="POST" onsubmit="handler(event)">
+    <form action="/home/abc/" method="POST" enctype="multipart/form-data" onsubmit="handler(event)">
       {% csrf_token %}
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Full Name</label>
@@ -21,6 +21,8 @@
             <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
           </div>
+
+          <input type="file" name="myfile" />
 
 
           <button class="btn btn-primary" type="submit">Submit Query</button>

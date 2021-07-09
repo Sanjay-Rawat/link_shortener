@@ -15,6 +15,11 @@
                     <button class="btn btn-primary btn-lg" type="submit" >Shorten</button>
                 </div>
             </div>
+            {% if s_url %}
+            <div class="alert alert-success" role="alert">
+                {{s_url}}
+              </div>
+            {% endif %}
         </div>
         </form>
     </div>

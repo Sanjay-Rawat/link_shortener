@@ -20,7 +20,7 @@ from link_shortener.view import invalidPath,redirectToHome,getUrl
 
 urlpatterns = [
     path('',redirectToHome),
-    path('<str:uid>/',getUrl),
     path('home/',include('home.urls')),
+    path('<str:uid>/',getUrl),
     url(r'^.*/$', invalidPath),
 ]

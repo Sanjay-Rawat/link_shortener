@@ -9,8 +9,8 @@ class ContactModel(models.Model):
 
 
 class UrlModel(models.Model):
-    _id = models.CharField(max_length=50)
-    o_url = models.CharField(max_length=50) #original url
+    _id = models.CharField(max_length=50) 
+    o_url = models.CharField(max_length=500) #original url
     created_at = models.DateTimeField()
     expire_at = models.DateTimeField(null=True)
     created_by = models.CharField(null=True,max_length=50)
