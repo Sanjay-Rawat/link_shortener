@@ -1,13 +1,13 @@
 <div class="bg-dark">
     <div class="container">
-        <form action="/home/short/" method="POST">
+        <form action="/home/short/" method="POST"  onsubmit="handler(event)">
             {% csrf_token %}
         <div class="row mt-3 mb-3 pt-3 pb-3">
             <div class="col-md-9">
                 <div class="mt-2 mb-2">
                    
                     <input type="text" class="form-control form-control-lg" 
-                        placeholder="Paste your link here" name="url">
+                        placeholder="Paste your link here" name="url" id="abcd">
                 </div>
             </div>
             <div class="col-md-3">
@@ -24,3 +24,26 @@
         </form>
     </div>
 </div>
+
+<script>
+function handler(event){
+    event.preventDefault()
+    const url = document.getElementsByName('url')[0].value;
+    const url = "http://127.0.0.1:8000/home/short/";
+    fetch(url, {
+        method : "POST",
+        body: new FormData(document.getElementById("abcd")),
+        // -- or --
+        // body : JSON.stringify({
+            // user : document.getElementById('user').value,
+            // ...
+        // })
+    }).then(
+        response => response.text() // .json(), etc.
+        // same as function(response) {return response.text();}
+    ).then(
+        html => console.log(html)
+    );
+
+}
+</script>

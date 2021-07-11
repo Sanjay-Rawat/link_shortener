@@ -4,6 +4,7 @@ class ContactModel(models.Model):
     email = models.EmailField()
     contactNumber = models.IntegerField(null=True) 
     comment = models.TextField(max_length=1000)
+    attachment_url = models.TextField(max_length=1000,null=True)
     class Meta:
         db_table = 'Contacts'
 

@@ -31,12 +31,10 @@ def contact(request):
           return render(request,'contact.html',{'currentPage':'contact','contacts':data})
 
 def saveContact(request):
-               myfile = request.FILES['myfile']
+               file = request.FILES['myfile']
+               path=os.path.join(BASE_DIR, "static_files/"+file.name)
                fs = FileSystemStorage()
-               # print(myfile.extension)
-               path=os.path.join(BASE_DIR, "static_files/"+myfile.name)
-               print(path)
-               filename = fs.save(path, myfile)
+               filename = fs.save(path, file)
                uploaded_file_url = fs.url(filename)
                a = request.POST.get('name')
                b = request.POST.get('email')
@@ -46,7 +44,8 @@ def saveContact(request):
                     name=a ,
                     email=b,
                     contactNumber=c,
-                    comment=d
+                    comment=d,
+                    attachment_url=uploaded_file_url
                     )
                data.save()
                return HttpResponse("form is submitted") #https://pypi.org/project/mysqlclient/
@@ -67,8 +66,8 @@ def shortUrl(request):
      result =UrlModel(_id=uid, o_url=o_url ,created_at=created_at)
      result.save()
      url='http://127.0.0.1:8000/'+uid
-     return render(request,'home.html',{'currentPage':'home','s_url':url})
-     # return HttpResponse()
+     # return render(request,'home.html',{'currentPage':'home','s_url':url})
+     return HttpResponse(url)
 
      
      

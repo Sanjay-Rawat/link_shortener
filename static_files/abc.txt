@@ -1,0 +1,72 @@
+from Rahul (privately):    11:05 AM
+(function(){
+  var a = b = 3;
+})();
+console.log("a defined? " + (typeof a !== 'undefined'));
+console.log("b defined? " + (typeof b !== 'undefined'));
+from Rahul (privately):    11:07 AM
+var myObject = {
+    foo: "bar",
+    func: function() {
+        var self = this;
+        console.log("outer func:  this.foo = " + this.foo);
+        console.log("outer func:  self.foo = " + self.foo);
+        (function() {
+            console.log("inner func:  this.foo = " + this.foo);
+            console.log("inner func:  self.foo = " + self.foo);
+        }());
+    }
+};
+myObject.func();
+from Rahul (privately):    11:10 AM
+function foo1()
+{
+  return {
+      bar: "hello"
+  };
+}
+function foo2()
+{
+  return
+  {
+      bar: "hello"
+  };
+}
+from Rahul (privately):    11:13 AM
+(function() {
+    console.log(1); 
+    setTimeout(function(){console.log(2)}, 1000); 
+    setTimeout(function(){console.log(3)}, 0); 
+    console.log(4);
+})();
+from Rahul (privately):    11:14 AM
+var d = {};
+from Rahul (privately):    11:14 AM
+[ 'zebra', 'horse' ].forEach(function(k) {
+    d[k] = undefined;
+});
+from Rahul (privately):    11:16 AM
+var arr1 = "john".split('');
+var arr2 = arr1.reverse();
+var arr3 = "jones".split('');
+arr2.push(arr3);
+console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+from Rahul (privately):    11:18 AM
+var a={},
+    b={key:'b'},
+    c={key:'c'};
+a[b]=123;
+a[c]=456;
+console.log(a[b]); 123
+			
+
+const user = BeheviouralSubject({name:"abc"})
+user.next({name:xyz})1000
+user.subscribe()
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+{
+  "data": {
+    "invoiceDetails": {
+      "_id": "60b8c3350ee9be0012f603a1",
+      "type": "placeHolder",
+      "paymentId": "60b8c2e40ee9be0012f6032b",
+      "bookingRequestId": "60b8c2e40ee9be0012f60329",
+      "jobId": "60b8c2e40ee9be0012f60329",
+      "address": {
+        "_id": "60b78b090ee9be0012f5a5fd",
+        "lat": -34.9284989,
+        "lng": 138.6007456,
+        "fullAddress": "Adelaide SA, Australia",
+        "city": "Adelaide",
+        "postcode": "",
+        "state": "SA",
+        "country": "Australia"
+      },
+      "jobData": {
+        "type": "booking_request",
+        "JobORQuoteNumber": null,
+        "bookingRequestId": "accepted",
+        "resourceType": "human",
+        "tenderName": "Booking for sanjay rawat",
+        "workDescription": "abc",
+        "address": {
+          "_id": "60b78b090ee9be0012f5a5fd",
+          "lat": -34.9284989,
+          "lng": 138.6007456,
+          "fullAddress": "Adelaide SA, Australia",
+          "city": "Adelaide",
+          "postcode": "",
+          "state": "SA",
+          "country": "Australia"
+        },
+        "startDateTime": "01-08-2045",
+        "endDateTime": "30-08-2045",
+        "redirectText": "hire-resources-bookings",
+        "status": "accepted"
+      },
+      "amount": 309,
+      "lastUpdateAt": "2021-06-03T11:55:32.651Z",
+      "buyerViewAmount": "316.7",
+      "sellerViewAmount": "290.1",
+      "buyer": {
+        "tradingName": "The Trustee for The Urban List Trust",
+        "_id": "6087b8572a749900127403ce",
+        "firstName": "sanjay",
+        "lastName": "rawat",
+        "mainAddress": {
+          "_id": "60b78b090ee9be0012f5a5fd",
+          "lat": -34.9284989,
+          "lng": 138.6007456,
+          "fullAddress": "Adelaide SA, Australia",
+          "city": "Adelaide",
+          "postcode": "",
+          "state": "SA",
+          "country": "Australia"
+        }
+      },
+      "seller": {
+        "tradingName": "The Trustee for The Urban List Trust",
+        "_id": "6088edbd73494d00128ca3e7",
+        "firstName": "sanjay",
+        "lastName": "rawat",
+        "mainAddress": {
+          "_id": "60bdd9ac042c710013345e8b",
+          "lat": -34.9284989,
+          "lng": 138.6007456,
+          "fullAddress": "Adelaide SA, Australia",
+          "city": "Adelaide",
+          "postcode": "",
+          "state": "SA",
+          "country": "Australia"
+        }
+      },
+      "__v": 0,
+      "userType": "seller"
+    },
+    "invoicesList": [],
+    "redirectData": {
+      "jobType": "bookingRequest",
+      "_id": "60b8c2e40ee9be0012f60329",
+      "status": "accepted"
+    }
+  }
+}
