@@ -1,6 +1,6 @@
 <div class="bg-dark">
     <div class="container">
-        <form action="/home/short/" method="POST"  onsubmit="handler(event)">
+        <form onsubmit="handler(event)">
             {% csrf_token %}
         <div class="row mt-3 mb-3 pt-3 pb-3">
             <div class="col-md-9">
@@ -15,11 +15,19 @@
                     <button class="btn btn-primary btn-lg" type="submit" >Shorten</button>
                 </div>
             </div>
-            {% if s_url %}
-            <div class="alert alert-success" role="alert">
-                {{s_url}}
-              </div>
-            {% endif %}
+          
+
+            <div class="mx-auto" style="width: 100%;">
+            <div class="col-md-6">
+                <div class="alert alert-success" id="s_url_div" role="alert" style="display: none;">
+                    <span id="s_url"></span>
+                    <div class="float-end">
+                        <i class="fa fa-copy fa-2x" ></i>
+                    </div>
+                     </div>
+            </div>
+        </div>
+        
         </div>
         </form>
     </div>
@@ -27,22 +35,27 @@
 
 <script>
 function handler(event){
-    event.preventDefault()
-    const url = document.getElementsByName('url')[0].value;
+    event.preventDefault();
+    const o_url = document.getElementsByName('url')[0].value;
+    const csrfmiddlewaretoken=document.getElementsByName("csrfmiddlewaretoken")[0].value;
     const url = "http://127.0.0.1:8000/home/short/";
+    let data = new FormData();
+    data.append('url', o_url);;
+    data.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+
     fetch(url, {
         method : "POST",
-        body: new FormData(document.getElementById("abcd")),
-        // -- or --
-        // body : JSON.stringify({
-            // user : document.getElementById('user').value,
-            // ...
-        // })
+        body: data,
     }).then(
-        response => response.text() // .json(), etc.
-        // same as function(response) {return response.text();}
-    ).then(
-        html => console.log(html)
+        response => response.text()
+    )
+    .then(
+        s_url => {
+            document.getElementsByName('url')[0].value='';
+            document.getElementById("s_url").innerText=s_url;
+            document.getElementById("s_url_div").style.display="block"
+        }
+
     );
 
 }
