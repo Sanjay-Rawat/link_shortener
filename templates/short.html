@@ -2,61 +2,94 @@
     <div class="container">
         <form onsubmit="handler(event)">
             {% csrf_token %}
-        <div class="row mt-3 mb-3 pt-3 pb-3">
-            <div class="col-md-9">
-                <div class="mt-2 mb-2">
-                   
-                    <input type="text" class="form-control form-control-lg" 
-                        placeholder="Paste your link here" name="url" id="abcd">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="d-grid gap-2 mb-2 mt-2 ">
-                    <button class="btn btn-primary btn-lg" type="submit" >Shorten</button>
-                </div>
-            </div>
-          
+            <div class="row mt-3 mb-3 pt-3 pb-3">
+                <div class="col-md-9">
+                    <div class="mt-2 mb-2">
 
-            <div class="mx-auto" style="width: 100%;">
-            <div class="col-md-6">
-                <div class="alert alert-success" id="s_url_div" role="alert" style="display: none;">
-                    <span id="s_url"></span>
-                    <div class="float-end">
-                        <i class="fa fa-copy fa-2x" ></i>
+                        <input type="text" class="form-control form-control-lg" placeholder="Paste your link here"
+                            name="url" id="abcd">
                     </div>
-                     </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="d-grid gap-2 mb-2 mt-2 ">
+                        <button class="btn btn-primary btn-lg" type="submit">Shorten</button>
+                    </div>
+                </div>
+
+
+                <div class="mx-auto" style="width: 100%;">
+                    <div class="col-md-6">
+                        <div class="alert alert-success" id="s_url_div" role="alert" style="display: none;">
+                            <span id="s_url"></span>
+                            <div class="float-end">
+                                <i class="fa fa-copy fa-2x" onclick="copyStringToClipboard()"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        
-        </div>
         </form>
     </div>
 </div>
 
 <script>
-function handler(event){
-    event.preventDefault();
-    const o_url = document.getElementsByName('url')[0].value;
-    const csrfmiddlewaretoken=document.getElementsByName("csrfmiddlewaretoken")[0].value;
-    const url = "http://127.0.0.1:8000/home/short/";
-    let data = new FormData();
-    data.append('url', o_url);;
-    data.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
+    function handler(event) {
+        event.preventDefault();
+        const o_url = document.getElementsByName('url')[0].value;
+        const csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+        const url = "http://127.0.0.1:8000/home/short/";
+        let data = new FormData();
+        data.append('url', o_url);;
+        data.append('csrfmiddlewaretoken', csrfmiddlewaretoken);
 
-    fetch(url, {
-        method : "POST",
-        body: data,
-    }).then(
-        response => response.text()
-    )
-    .then(
-        s_url => {
-            document.getElementsByName('url')[0].value='';
-            document.getElementById("s_url").innerText=s_url;
-            document.getElementById("s_url_div").style.display="block"
-        }
+        fetch(url, {
+            method: "POST",
+            body: data,
+        }).then(
+            response => response.text()
+        ).then(
+                s_url => {
+                    document.getElementsByName('url')[0].value = '';
+                    document.getElementById("s_url").innerText = s_url;
+                    document.getElementById("s_url_div").style.display = "block"
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Link Successfully shorted.',
+                        text: s_url,
+                        confirmButtonText: 'Copy Url',
+                    }).then(data => {
+                        copyStringToClipboard();
+                    })
+                }
 
-    );
+            );
 
-}
+    }
+
+    function copyStringToClipboard() {
+        let str = document.getElementById("s_url").innerText
+        var el = document.createElement('textarea');
+        el.value = str;
+        // Set non-editable to avoid focus and move outside of view
+        el.setAttribute('readonly', '');
+        el.style = { position: 'absolute', left: '-9999px' };
+        document.body.appendChild(el);
+        // Select text inside element
+        el.select();
+        // Copy text to clipboard
+        document.execCommand('copy');
+        // Remove temporary element
+        document.body.removeChild(el);
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Successfully copied!',
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }
+
+
 </script>
